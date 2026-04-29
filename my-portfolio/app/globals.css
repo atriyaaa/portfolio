@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+
+  --accent-main: #2563eb;
+  --accent-secondary: #14b8a6;
+
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+}
+
+.dark {
+  --background: #0b0f19;
+  --foreground: #e5e7eb;
+
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+
+  --accent-main: #3b82f6;
+  --accent-secondary: #a78bfa;
+
+  --surface: #111827;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-accent-main: var(--accent-main);
+  --color-accent-secondary: var(--accent-secondary);
+
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
