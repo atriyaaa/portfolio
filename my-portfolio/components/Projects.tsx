@@ -35,9 +35,9 @@ const projects = [
     result: "Prediction + explainability in one biomedical interface",
     process: ["Gene Data", "ML Model", "SHAP", "Web App"],
     tools: ["React", "Django REST API", "Python", "Machine Learning", "SHAP"],
-    github: "#",
-    demo: "#",
-    thumbnail: "xai",
+    github: "https://github.com/atriyaaa/FinalYearProject",
+    demo: "https://cancerxai.vercel.app",
+    thumbnail: "/images/cancerxai.jpeg",
   },
   {
     title: "Echoes of Change",
@@ -55,9 +55,9 @@ const projects = [
     result: "Improved accessibility for volunteer-opportunity matching",
     process: ["User Needs", "Matching Logic", "Initiatives", "Platform"],
     tools: ["Django", "Python", "HTML", "CSS", "SQLite"],
-    github: "#",
-    demo: "#",
-    thumbnail: "community",
+    github: "https://github.com/atriyaaa/EchoesofChange",
+    demo: "https://echoesofchange.onrender.com",
+    thumbnail: "/images/echoesofchange.jpeg",
   },
 ];
 
@@ -138,7 +138,11 @@ export default function Projects() {
                 >
                   <div className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-accent-main transition-transform duration-300 group-hover:scale-x-100" />
 
-                  <ProjectThumbnail type={project.thumbnail} />
+                  <ProjectThumbnail
+                    image={project.thumbnail}
+                    title={project.title}
+                    label={project.category}
+                  />
 
                   <div className="mt-4 space-y-3">
                     <div className="flex items-start justify-between gap-4">
@@ -227,7 +231,12 @@ export default function Projects() {
               </button>
 
               <div className="grid gap-5 md:grid-cols-[1.5fr_0.8fr]">
-                <ProjectThumbnail type={selectedProject.thumbnail} large />
+                <ProjectThumbnail
+                  image={selectedProject.thumbnail}
+                  title={selectedProject.title}
+                  label={selectedProject.category}
+                  large
+                />
 
                 <div className="rounded-2xl border border-border bg-surface/80 p-5">
                   <p className="text-xs font-medium uppercase tracking-[0.16em] text-text-secondary">
@@ -368,36 +377,49 @@ function SnapshotItem({ label, value }: { label: string; value: string }) {
 }
 
 function ProjectThumbnail({
-  type,
+  image,
+  title,
+  label,
   large = false,
 }: {
-  type: string;
+  image: string;
+  title: string;
+  label: string;
   large?: boolean;
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-border bg-background p-4 ${
+      className={`group relative overflow-hidden rounded-2xl border border-border bg-background ${
         large ? "h-64" : "h-40"
       }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-main/10 via-transparent to-accent-secondary/10" />
+      {/* Image */}
+      <img
+        src={image}
+        alt={`${title} preview`}
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
 
-      <div className="relative z-10 flex h-full flex-col justify-between">
-        <div className="flex items-center justify-between">
-          <div className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-          </div>
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
-          <span className="rounded-full bg-accent-main/10 px-2 py-1 text-[10px] font-medium text-accent-main">
-            {type === "xai" ? "XAI Preview" : "Web App Preview"}
-          </span>
-        </div>
+      {/* Fake browser dots */}
+      <div className="absolute left-4 top-4 flex gap-1.5">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+        <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
+        <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
+      </div>
 
-        {type === "xai" ? <XAIThumbnail /> : <CommunityThumbnail />}
+      {/* Label */}
+      <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium text-accent-main shadow-sm backdrop-blur">
+        {label}
+      </span>
 
-        <DataPulse />
+      {/* Title */}
+      <div className="absolute bottom-4 left-4 right-4">
+        <p className="text-sm font-semibold text-white drop-shadow">
+          {title}
+        </p>
       </div>
     </div>
   );
