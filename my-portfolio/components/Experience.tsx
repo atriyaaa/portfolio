@@ -12,15 +12,22 @@ import {
 const timeline = [
   {
     type: "work",
-    title: "Talent Acquisition & Compliance Manager",
+    title: "Recruitment & Compliance Manager",
     company: "Leopard Logistics, Amazon DSP",
     date: "Oct 2025 – Present",
     points: [
-      "Led recruitment of 150+ candidates/month, reducing time-to-hire by 35%.",
-      "Maintained 98–100% compliance across fleet audits and documentation.",
-      "Managed workforce planning for 40–100+ active drivers.",
+      "Manage 30+ applications per week across screening, interviews, document checks, background checks, onboarding, and training.",
+      "Conduct weekly audits across 60+ driver records, helping improve overall compliance from approximately 65% to 95%.",
+      "Built a Google Sheets ClearQuote tracker covering 80+ drivers daily, contributing to completion rates increasing from approximately 30% to 90%.",
+      "Reduced typical onboarding time from around 7 days to 3 days through improved screening, document checks, and communication workflows.",
     ],
-    tags: ["Operations", "Compliance", "Recruitment"],
+    tags: [
+      "Compliance",
+      "Google Sheets",
+      "Process Improvement",
+      "Audit",
+      "Operations",
+    ],
   },
   {
     type: "work",
@@ -28,11 +35,11 @@ const timeline = [
     company: "Uptrail",
     date: "Jun – Jul 2025",
     points: [
-      "Analyzed 500K+ row datasets to generate actionable insights.",
-      "Built Power BI and Tableau dashboards, reducing reporting time by 30%.",
-      "Automated ETL workflows with Python and SQL.",
+      "Used Python, SQL, and Excel to clean, transform, and analyse datasets.",
+      "Performed duplicate removal, missing-value handling, and structured querying.",
+      "Improved reporting efficiency by approximately 30% and reduced manual data-cleaning effort by approximately 40%.",
     ],
-    tags: ["Python", "SQL", "Power BI", "Tableau"],
+    tags: ["Python", "SQL", "Excel", "Data Cleaning"],
   },
   {
     type: "work",
@@ -40,10 +47,11 @@ const timeline = [
     company: "MeriSKILL",
     date: "May – Jun 2024",
     points: [
-      "Delivered statistical analyses for client projects.",
-      "Created dashboards that improved stakeholder engagement by 25%.",
+      "Completed two data analysis projects using SQL, Excel, and Power BI, including a diabetes dataset.",
+      "Performed data cleaning, exploratory analysis, and SQL-based analysis before building dashboards and visualisations.",
+      "Delivered analytical outputs that contributed to a reported 25% increase in stakeholder engagement.",
     ],
-    tags: ["Analytics", "Power BI", "Tableau"],
+    tags: ["SQL", "Excel", "Power BI", "Analytics"],
   },
   {
     type: "work",
@@ -51,10 +59,10 @@ const timeline = [
     company: "Asia Pacific University",
     date: "Oct 2023 – May 2025",
     points: [
-      "Supported 200+ students in Python, SQL, and C.",
-      "Resolved 90%+ of technical issues on first contact.",
+      "Provided technical support to 200+ students across Python, SQL, and C programming.",
+      "Helped troubleshoot code, explain programming concepts, and resolve technical problems for users with different experience levels.",
     ],
-    tags: ["Python", "SQL", "Teaching"],
+    tags: ["Python", "SQL", "C", "Technical Support"],
   },
   {
     type: "education",
@@ -62,11 +70,11 @@ const timeline = [
     company: "University of Surrey",
     date: "Sep 2023 – Jun 2025",
     points: [
-      "Completed second and final year of Computer Science.",
-      "First-Class final-year cancer classification project.",
-      "Worked with AI, deep learning, databases, and web development.",
+      "Graduated with a 2:2 in Computer Science.",
+      "Awarded a First-Class grade (70%+) for the final-year CancerXAI project.",
+      "Studied Information Security Management, Computer Networking, Database Systems, Software Engineering, AI, and Advanced Algorithms.",
     ],
-    tags: ["Computer Science", "AI", "Databases"],
+    tags: ["Computer Science", "Software", "Data", "Cybersecurity"],
   },
   {
     type: "education",
@@ -75,10 +83,10 @@ const timeline = [
     date: "Jun 2021 – May 2023",
     points: [
       "Achieved GPA 3.62/4.00.",
-      "Studied programming, databases, operating systems, and AI.",
-      "Earned Cisco Academy CCNAv7 Introduction to Networks certification.",
+      "Studied Python, C, databases, operating systems, systems analysis, web development, and AI.",
+      "Completed Cisco Academy CCNAv7 – Introduction to Networks.",
     ],
-    tags: ["Python", "C", "Networking"],
+    tags: ["Python", "C", "Databases", "Networking"],
   },
 ];
 
@@ -98,8 +106,8 @@ export default function Experience() {
             </h2>
 
             <p className="max-w-xl leading-7 text-text-secondary">
-              A horizontal roadmap of internships, work experience, and academic
-              background — scroll sideways to explore.
+              A timeline of professional experience, technical development, and
+              academic progress across data, technology, and compliance.
             </p>
           </div>
 
@@ -125,10 +133,22 @@ export default function Experience() {
                 return (
                   <motion.div
                     key={`${item.title}-${index}`}
-                    initial={{ opacity: 0, y: isTop ? -18 : 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.35, delay: index * 0.04 }}
+                    initial={{
+                      opacity: 0,
+                      y: isTop ? -18 : 18,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                      margin: "-80px",
+                    }}
+                    transition={{
+                      duration: 0.35,
+                      delay: index * 0.04,
+                    }}
                     className="relative flex w-[360px] shrink-0 snap-center flex-col items-center md:w-[430px]"
                   >
                     <div
@@ -137,6 +157,7 @@ export default function Experience() {
                       } group relative min-h-[230px] w-full overflow-hidden rounded-3xl border border-border bg-surface/85 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-accent-main/30 hover:shadow-2xl`}
                     >
                       <div className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-accent-main transition-transform duration-300 group-hover:scale-x-100" />
+
                       <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-accent-main/10 blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                       <div className="relative z-10 space-y-3">
@@ -150,7 +171,9 @@ export default function Experience() {
                           </div>
 
                           <span className="rounded-full bg-accent-main/10 px-3 py-1 text-xs font-medium text-accent-main">
-                            {item.type === "work" ? "Experience" : "Education"}
+                            {item.type === "work"
+                              ? "Experience"
+                              : "Education"}
                           </span>
                         </div>
 

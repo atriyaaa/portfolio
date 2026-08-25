@@ -48,12 +48,68 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Page behaviour */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  min-height: 100vh;
+  overflow-x: hidden;
+
   background: var(--background);
   color: var(--foreground);
+
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Text selection */
+::selection {
+  background: color-mix(in srgb, var(--accent-main) 25%, transparent);
+  color: var(--text-primary);
+}
+
+/* Better keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-main);
+  outline-offset: 3px;
+}
+
+/* Prevent images/media overflowing */
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+/* Slightly improve link/button interaction */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -4,55 +4,111 @@ import { motion } from "framer-motion";
 import {
   BarChart3,
   Code2,
-  LineChart,
-  Database,
+  MonitorCog,
+  ShieldCheck,
+  Network,
   Brain,
-  Dna,
   Sparkles,
 } from "lucide-react";
 
 const skillGroups = [
   {
-    title: "Data Analysis",
+    title: "Data & BI",
     icon: <BarChart3 size={18} />,
-    level: "Core",
-    description: "Cleaning, exploring, and interpreting data clearly.",
-    skills: ["SQL joins", "Window functions", "Excel", "EDA", "Data Cleaning"],
+    level: "Practical Experience",
+    description:
+      "Working with structured data, reporting workflows, dashboards, and operational KPIs.",
+    skills: [
+      "SQL",
+      "Excel",
+      "Google Sheets",
+      "Power BI",
+      "Tableau",
+      "EDA",
+      "Data Cleaning",
+      "KPI Reporting",
+    ],
   },
   {
     title: "Programming",
     icon: <Code2 size={18} />,
-    level: "Core",
-    description: "Using code to automate analysis and workflows.",
-    skills: ["Python", "Pandas", "NumPy", "Scripting", "Data Processing"],
+    level: "Project Experience",
+    description:
+      "Using programming and scripting to analyse data, build applications, and solve technical problems.",
+    skills: [
+      "Python",
+      "Pandas",
+      "C",
+      "SQL",
+      "Data Processing",
+      "Problem Solving",
+    ],
   },
   {
-    title: "Visualization",
-    icon: <LineChart size={18} />,
-    level: "Core",
-    description: "Turning analysis into dashboards and stories.",
-    skills: ["Power BI", "Dashboard Design", "Data Storytelling", "Charts"],
+    title: "Web & Software",
+    icon: <MonitorCog size={18} />,
+    level: "Project Experience",
+    description:
+      "Building full-stack applications and working across the software development lifecycle.",
+    skills: [
+      "Django",
+      "React",
+      "HTML",
+      "CSS",
+      "Git/GitHub",
+      "SDLC",
+      "Requirements Analysis",
+      "Testing",
+    ],
   },
   {
-    title: "Databases",
-    icon: <Database size={18} />,
-    level: "Working",
-    description: "Querying structured data and building insight layers.",
-    skills: ["PostgreSQL", "MySQL", "Query Optimization", "CTEs"],
+    title: "Cyber & GRC",
+    icon: <ShieldCheck size={18} />,
+    level: "Developing",
+    description:
+      "Applying compliance, audit, control, and risk-thinking in operational environments.",
+    skills: [
+      "Compliance Monitoring",
+      "Audit Support",
+      "Control Checks",
+      "Risk Identification",
+      "Issue Escalation",
+      "Audit Trails",
+      "Data Protection",
+    ],
   },
   {
-    title: "Machine Learning",
+    title: "Networking & Systems",
+    icon: <Network size={18} />,
+    level: "Foundation",
+    description:
+      "Academic and certification-based understanding of networking and information security fundamentals.",
+    skills: [
+      "TCP/IP",
+      "OSI Model",
+      "IPv4",
+      "Routing",
+      "Switching",
+      "Network Protocols",
+      "Information Security",
+    ],
+  },
+  {
+    title: "Machine Learning & AI",
     icon: <Brain size={18} />,
-    level: "Exploring",
-    description: "Building interpretable models and evaluating results.",
-    skills: ["Regression", "Classification", "Model Evaluation", "SHAP"],
-  },
-  {
-    title: "Bioinformatics",
-    icon: <Dna size={18} />,
-    level: "Exploring",
-    description: "Applying analytical thinking to biomedical data.",
-    skills: ["Gene Expression", "Cancer Subtypes", "XAI", "Biomedical Data"],
+    level: "Project Experience",
+    description:
+      "Building and evaluating machine learning models with a focus on explainability.",
+    skills: [
+      "Scikit-learn",
+      "PyTorch",
+      "Random Forest",
+      "SVM",
+      "Neural Networks",
+      "PCA",
+      "SHAP",
+      "Model Evaluation",
+    ],
   },
 ];
 
@@ -72,14 +128,17 @@ export default function Skills() {
             </h2>
 
             <p className="max-w-xl leading-7 text-text-secondary">
-              A practical toolkit for cleaning, analyzing, visualizing, and
-              communicating data-driven insights.
+              A growing technical toolkit spanning data analytics, software
+              development, machine learning, cybersecurity fundamentals, and
+              governance, risk & compliance.
             </p>
           </div>
 
           <div className="rounded-2xl border border-border bg-surface/70 px-4 py-3 text-sm text-text-secondary shadow-sm backdrop-blur">
-            <span className="font-semibold text-text-primary">Primary focus:</span>{" "}
-            Data Analytics
+            <span className="font-semibold text-text-primary">
+              Career focus:
+            </span>{" "}
+            Data • Technology • Cyber/GRC
           </div>
         </div>
 
@@ -94,6 +153,7 @@ export default function Skills() {
               className="group relative overflow-hidden rounded-3xl border border-border bg-surface/85 p-6 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:border-accent-main/30 hover:shadow-2xl"
             >
               <div className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-accent-main transition-transform duration-300 group-hover:scale-x-100" />
+
               <div className="pointer-events-none absolute -right-14 -top-14 h-32 w-32 rounded-full bg-accent-main/10 blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               <div className="relative z-10 space-y-5">
@@ -111,6 +171,7 @@ export default function Skills() {
                   <h3 className="text-lg font-semibold text-text-primary">
                     {group.title}
                   </h3>
+
                   <p className="mt-2 text-sm leading-6 text-text-secondary">
                     {group.description}
                   </p>
@@ -134,8 +195,9 @@ export default function Skills() {
         <div className="rounded-3xl border border-border bg-surface/70 p-5 shadow-sm backdrop-blur">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <p className="text-sm leading-6 text-text-secondary">
-              I’m strongest in turning messy data into understandable outputs:
-              dashboards, reports, and clear analytical summaries.
+              I apply these skills across practical projects and professional
+              experience, from data reporting and machine learning to
+              technology-enabled process improvement and compliance controls.
             </p>
 
             <a

@@ -13,18 +13,18 @@ import {
 const highlights = [
   {
     icon: <GraduationCap size={18} />,
-    title: "Recent Graduate",
-    text: "Graduated a year ago and now focused on building practical, job-ready data projects.",
+    title: "Computer Science Graduate",
+    text: "BSc Computer Science graduate with experience across data analysis, software development, technical projects, and operational compliance.",
   },
   {
     icon: <Target size={18} />,
-    title: "Current Focus",
-    text: "Targeting data analyst roles, with additional interest in AI/ML and bioinformatics.",
+    title: "Three Career Tracks",
+    text: "Focused on opportunities across Data & BI, Technology & Software, and Cybersecurity & GRC.",
   },
   {
     icon: <Brain size={18} />,
-    title: "How I Think",
-    text: "I like breaking messy problems into clean insights, dashboards, and decisions.",
+    title: "How I Work",
+    text: "I like breaking complex problems into structured processes, clear insights, and practical technical solutions.",
   },
 ];
 
@@ -47,27 +47,28 @@ export default function About() {
 
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
-              Curious, analytical, and focused on turning data into clarity.
+              Analytical, technical, and focused on solving real-world problems.
             </h2>
 
             <p className="leading-7 text-text-secondary">
-              I’m Atriya, a recent graduate building a career in data analytics.
-              I enjoy working with data from cleaning and exploration through to
-              dashboards, insights, and storytelling.
+              I’m Atriya, a Computer Science graduate with experience across
+              data analysis, software development, and operational compliance.
+              I enjoy working on problems that combine technical thinking,
+              structured analysis, and practical business impact.
             </p>
 
             <p className="leading-7 text-text-secondary">
-              My main focus is data analyst roles, especially where I can use
-              SQL, Python, Excel, and Power BI to solve practical problems. I’m
-              also gradually exploring AI/ML and bioinformatics through projects
-              like CancerXAI.
+              My experience includes working with SQL, Excel, Python, Django,
+              React, machine learning, dashboards, compliance processes, and
+              operational reporting. I’m currently building towards graduate
+              opportunities across Data & BI, Technology, and Cybersecurity/GRC.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm text-text-secondary">
               <MapPin size={15} className="text-accent-main" />
-              Open to opportunities
+              Open to UK opportunities
             </div>
 
             <a
@@ -88,13 +89,14 @@ export default function About() {
             </p>
 
             <p className="mt-3 text-sm leading-7 text-text-secondary">
-              I like clean structure, careful problem-solving, and outputs that
-              are easy for non-technical users to understand.
+              I value clear structure, careful problem-solving, and solutions
+              that are understandable, reliable, and useful to both technical
+              and non-technical users.
             </p>
           </div>
         </motion.div>
 
-        {/* Right - slightly lowered on desktop */}
+        {/* Right */}
         <motion.div
           initial={{ opacity: 0, x: 18 }}
           whileInView={{ opacity: 1, x: 0 }}

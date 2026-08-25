@@ -1,9 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Link, Code2, Send, Sparkles } from "lucide-react";
+import {
+  Mail,
+  Link,
+  Code2,
+  Send,
+  Sparkles,
+  Download,
+  X,
+} from "lucide-react";
 
 export default function Contact() {
+  const [showCvModal, setShowCvModal] = useState(false);
+
   return (
     <section id="contact" className="py-16">
       <motion.div
@@ -24,37 +35,41 @@ export default function Contact() {
             </div>
 
             <h2 className="text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
-              Open to Data Analyst Opportunities
+              Open to Data, Technology & Cyber Opportunities
             </h2>
 
             <p className="leading-7 text-text-secondary">
-              I’m currently looking for data analyst roles where I can
-              contribute, learn, and grow. Feel free to reach out if you’d like
-              to connect or discuss opportunities.
+              I’m currently exploring graduate and junior opportunities across
+              Data & BI, Technology, and Cybersecurity/GRC. Feel free to reach
+              out if you’d like to connect, discuss a role, or learn more about
+              my projects and experience.
             </p>
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="mailto:atriyasiv@gmail.com"
+              href="mailto:atriya0712@gmail.com"
               className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-accent-main px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(37,99,235,0.35)]"
             >
               <span className="absolute inset-0 translate-x-[-120%] bg-white/20 transition-transform duration-500 group-hover:translate-x-[120%]" />
+
               <Mail size={16} className="relative z-10" />
+
               <span className="relative z-10">Email Me</span>
+
               <Send
                 size={15}
                 className="relative z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </a>
 
-            <a
-              href="/cv.pdf"
-              download
-              className="inline-flex items-center justify-center rounded-xl border border-border bg-background/80 px-6 py-3 text-sm font-medium text-text-primary transition-all duration-300 hover:-translate-y-1 hover:border-accent-main/40 hover:text-accent-main"
+            <button
+              onClick={() => setShowCvModal(true)}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-background/80 px-6 py-3 text-sm font-medium text-text-primary transition-all duration-300 hover:-translate-y-1 hover:border-accent-main/40 hover:text-accent-main"
             >
-              Download CV
-            </a>
+              <Download size={16} />
+              View CVs
+            </button>
           </div>
 
           <div className="mx-auto flex max-w-md flex-col gap-3 pt-2 sm:flex-row sm:justify-center">
@@ -80,11 +95,102 @@ export default function Contact() {
           </div>
 
           <p className="text-xs text-text-secondary">
-            Usually happy to connect about data analytics, dashboards, and
-            early-career opportunities.
+            Happy to connect about graduate opportunities, technical projects,
+            data analytics, software development, and cybersecurity/GRC.
           </p>
         </div>
       </motion.div>
+
+      {showCvModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
+          onClick={() => setShowCvModal(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-md rounded-3xl border border-border bg-surface p-6 shadow-2xl"
+          >
+            <button
+              onClick={() => setShowCvModal(false)}
+              className="absolute right-4 top-4 rounded-lg p-2 text-text-secondary transition-colors hover:bg-background hover:text-text-primary"
+              aria-label="Close CV selector"
+            >
+              <X size={18} />
+            </button>
+
+            <div className="mb-6 pr-8">
+              <p className="text-sm font-medium text-accent-main">
+                Choose a CV
+              </p>
+
+              <h3 className="mt-1 text-2xl font-semibold text-text-primary">
+                Select the most relevant version
+              </h3>
+
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
+                Choose the CV that best matches the role or area you’re
+                interested in.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <CvOption
+                title="Data & BI"
+                description="Data analysis, BI, reporting and analytics roles"
+                href="/Atriya_Sivakumar_Data_BI_CV.pdf"
+              />
+
+              <CvOption
+                title="Cyber & GRC"
+                description="Cybersecurity, risk, compliance and assurance roles"
+                href="/Atriya_Sivakumar_Cyber_GRC_CV.pdf"
+              />
+
+              <CvOption
+                title="Technology"
+                description="Technology, software and digital roles"
+                href="/Atriya_Sivakumar_Technology_CV.pdf"
+              />
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
+  );
+}
+
+function CvOption({
+  title,
+  description,
+  href,
+}: {
+  title: string;
+  description: string;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      download
+      className="group flex items-center justify-between rounded-2xl border border-border bg-background/80 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent-main/40 hover:shadow-md"
+    >
+      <div>
+        <p className="font-semibold text-text-primary transition-colors group-hover:text-accent-main">
+          {title} CV
+        </p>
+
+        <p className="mt-1 text-xs text-text-secondary">
+          {description}
+        </p>
+      </div>
+
+      <Download
+        size={18}
+        className="shrink-0 text-text-secondary transition-all duration-300 group-hover:-translate-y-1 group-hover:text-accent-main"
+      />
+    </a>
   );
 }

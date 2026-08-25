@@ -13,20 +13,21 @@ export default function Footer() {
         transition={{ duration: 0.4 }}
         className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 text-sm text-text-secondary md:flex-row"
       >
-        {/* Left */}
         <div className="text-center md:text-left">
           <p className="font-medium text-text-primary">
             © {new Date().getFullYear()} Atriya Sivakumar
           </p>
+
+          <p className="mt-1 text-xs text-text-secondary">
+            Data • Technology • Cybersecurity
+          </p>
         </div>
 
-        {/* Center small line (nice subtle divider feel) */}
         <div className="hidden h-6 w-px bg-border md:block" />
 
-        {/* Right Links */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href="mailto:atriyasiv@gmail.com"
+            href="mailto:atriya0712@gmail.com"
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium transition-all duration-300 hover:-translate-y-1 hover:border-accent-main/40 hover:text-accent-main"
           >
             <Mail
@@ -66,7 +67,6 @@ export default function Footer() {
         </div>
       </motion.div>
 
-      {/* Bottom subtle line */}
       <div className="mt-8 flex justify-center">
         <div className="h-px w-24 bg-gradient-to-r from-transparent via-accent-main/40 to-transparent" />
       </div>
